@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:19
 
 # Install git dan ffmpeg
 RUN apt-get update && \
