@@ -1,4 +1,3 @@
-# Gunakan Node.js versi 20
 FROM node:latest
 
 # Install git, ffmpeg, dan unzip
