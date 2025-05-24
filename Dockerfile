@@ -1,23 +1,25 @@
+# Gunakan Node.js versi 20
 FROM node:20
 
-# Install git dan ffmpeg
+# Install git, ffmpeg, unzip, dan yarn
 RUN apt-get update && \
     apt-get install -y git ffmpeg unzip && \
+    npm install -g yarn && \
     apt-get clean
 
-# Buat direktori kerja
+# Direktori kerja
 WORKDIR /app
 
-# Salin file ZIP ke container
+# Salin file ZIP ke dalam container
 COPY pl.zip .
 
-# Ekstrak pl.zip
+# Ekstrak ZIP dan install dependensi menggunakan yarn
 RUN unzip pl.zip && \
     cd pl && \
-    npm install
+    yarn install
 
-# Set direktori kerja ke folder hasil ekstrak
+# Ganti direktori kerja ke folder hasil ekstrak
 WORKDIR /app/pl
 
 # Jalankan aplikasi
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
