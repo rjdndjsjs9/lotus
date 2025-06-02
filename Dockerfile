@@ -18,10 +18,10 @@ COPY pl.zip .
 # Ekstrak pl.zip dan install dependensi
 RUN unzip pl.zip && \
     cd pl && \
-    yarn install
+    npm install
 
 # Set direktori kerja ke folder hasil ekstrak
 WORKDIR /app/pl
 
 # Jalankan aplikasi
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
